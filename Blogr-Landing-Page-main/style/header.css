@@ -1,0 +1,325 @@
+/* Styling the header */
+
+header{
+    padding:5% 8% 8% 8%;
+
+    background-image: url("../images/bg-pattern-intro-mobile.svg"), linear-gradient(90deg, #ff8f70, #ff8269, #ff7461, #ff665a, #ff5753, #ff4c50, #ff4451, #ff3d54);
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    border-radius: 0 0 0 50px;
+
+    display: flex;
+    flex-direction: column;
+    gap:4rem;
+}
+
+@media screen and (min-width:50rem) {
+    header{
+        padding-top: 3%;
+        background-image: url("../images/bg-pattern-intro-desktop.svg"),linear-gradient(90deg, #ff8f70, #ff8269, #ff7461, #ff665a, #ff5753, #ff4c50, #ff4451, #ff3d54);
+        gap:6.5rem;
+    }
+}
+
+.top-header{
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Adding animation to icons */
+
+.menu {
+    position: relative;
+    width: 25px;
+    height: 20px;
+}
+  
+.menu img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+  
+#closing-menu {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu.open{
+    height: 25px;
+}
+  
+.menu.open #menu {
+    opacity: 0;
+    visibility: hidden;
+}
+  
+.menu.open #closing-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (min-width:50rem) {
+    .menu{
+        display: none;
+    }
+}
+
+/* Styling the navigation bar */
+
+.navigation-container{
+    width: 100%;
+    padding:1.5rem 1.2rem;
+
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px -2px rgba(0,0,0,0.2);
+
+    position: absolute;
+
+    animation-name: slide;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.navigation-container.open{
+    display: flex;
+}
+
+@keyframes slide {
+    from {top:3.5rem;}
+    to {top:4rem;}
+}
+
+.nav-bar{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.product,.company,.connect{
+    cursor: pointer;
+    color:var(--headings);
+    font-weight: 500;
+
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    gap:0.3rem;
+}
+
+.product-container,.company-container,.connect-container{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.options-list{
+    padding:1rem;
+
+    background-color: hsl(240, 2%, 94%);
+    border-radius: 5px;
+    text-align: center;
+
+    display: none;
+    flex-direction: column;
+    gap:0.5rem;
+}
+
+.options-list.open{
+    display: flex;
+}
+
+.options-list a{
+    font-family: "Overpass";
+    font-weight: 400;
+
+    text-decoration: none;
+    color:var(--body-copy);
+}
+
+.options-list a:hover{
+    font-weight: 600;
+}
+
+hr{
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.sign-in-buttons-container{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+#login-button{
+    border:none;
+    background-color: transparent;
+}
+
+#sign-up-button{
+    padding:0.8rem 2rem;
+
+    border:none;
+    border-radius: 20px;
+    color:white;
+    background-image: linear-gradient(to right ,hsl(13, 100%, 72%),hsl(353, 100%, 62%));
+}
+
+#sign-up-button:hover{
+    background-color: var(--cta-hover-background);
+    background-image: none;
+}
+
+@media screen and (min-width:50rem) {
+    .top-header{
+        justify-content: initial;
+        gap:3rem;
+    }
+
+    .navigation-container{
+        padding:0;
+        width: 100%;
+
+        position: inherit;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        background-color: transparent;
+        box-shadow: none;
+        animation: none;
+    }
+
+    .nav-bar{
+        flex-direction: row;
+        width: fit-content;
+        gap:2rem;
+    }
+
+    .product,.company,.connect{
+        color:white;
+        opacity: 0.7;
+    }
+
+    .product:hover, .company:hover,.connect:hover{
+        opacity: 1;
+    }
+
+    .options-list{
+        position: absolute;
+        text-align: left;
+        top:2.2rem;
+        left:-1rem;
+
+        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
+    }
+
+    .company-container .options-list{
+        left:0;
+    }
+
+    .product-container .options-list{
+        left:-2rem;
+    }
+
+    hr{
+        display: none;
+    }
+
+    .sign-in-buttons-container{
+        flex-direction: row;
+    }
+
+    #login-button{
+        opacity: 0.7;
+        color:white;
+    }
+
+    #login-button:hover{
+        opacity: 1;
+    }
+
+    #sign-up-button{
+        color:var(--cta-text);
+        background-color: white;
+        background-image: none;
+    }
+}
+
+/* Styling the rest of the header */
+
+.header-text-container{
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header-text-container h1{
+    font-family: "Overpass";
+    font-weight: 600;
+    font-size: clamp(25px,5vw,45px);
+}
+
+.header-text-container p{
+    padding:1rem 0 2rem 0;
+    color:rgb(255, 255, 255,0.7);
+}
+
+.start-buttons-container{
+    display: flex;
+    gap:0.7rem;
+}
+
+#start-button{
+    padding:0.7rem 0.7rem 0.6rem 0.7rem;
+    color:var(--cta-text);
+
+    font-size: 14px;
+
+    border:none;
+    border-radius: 20px;
+}
+
+#start-button:hover{
+    color:white;
+    background-color: var(--cta-hover-background);
+}
+
+#learn-more-button{
+    padding:0.7rem 1.1rem 0.6rem 1.1rem;
+    color:white;
+
+    font-size: 14px;
+
+    border:1px solid white;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+#learn-more-button:hover{
+    background-image: none;
+    background-color: white;
+    color:var(--cta-hover-background);
+}
